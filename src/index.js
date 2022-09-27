@@ -8,37 +8,26 @@ export class AoPS extends Methods {
     super();
 
     // verbose option
-    this.print = data.verbose ? this.print : () => {};
+    this.print = data.verbose ? (text) => console.log(text) : () => {};
 
     // constants
     this.AJAX = "/ajax.php";
     this.CMTY_AJAX = "/m/community/ajax.php";
 
     // setup axios
-    const instance = axios.create({
+    this.instance = axios.create({
       baseURL: "https://artofproblemsolving.com",
     });
-
-    this.instance = instance;
-  }
-
-  async main() {
-    await this.setupAxios();
-  }
-
-  async print(text) {
-    console.log(text);
   }
 
   async login(userData = {}) {
     this.username = userData.username || undefined;
     this.password = userData.password || undefined;
 
-    // first
+    // get cookie/session id
     const first = await this.instance.get("/");
     this.updateCookieID(first);
     this.updateSessionID(first);
-
     this.print(`Cookie ID: ${this.cookieID}\nSession ID: ${this.sessionID}`);
 
     // login
