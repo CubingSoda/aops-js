@@ -24,7 +24,7 @@ export class AoPS extends Methods {
     this.username = userData.username || undefined;
     this.password = userData.password || undefined;
 
-    // get cookie/session id
+    // open /, get cookie/session id
     const first = await this.instance.get("/");
     this.updateCookieID(first);
     this.updateSessionID(first);
