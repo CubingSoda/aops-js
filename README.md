@@ -16,10 +16,18 @@ import { AoPS } from "aops-js";
 
 Make sure to wrap the code around an `async` function and prefix the methods with `await`.
 
-### `aops.login({username: 'x', password: 'x'})`
+### Login In
+
+```js
+aops.login({ username: "x", password: "x" });
+```
 
 Logs into AoPS. Takes an object with keys `username` and `password`.
 
-### `aops.submitPost({ post_text: "Hello World!", topic_id: "3156623" })`
+### Submit Post
+
+```js
+aops.submitPost({ post_text: "Hello World!", topic_id: "3156623" });
+```
 
 Submits a post. User must be logged in. Requires post body and thread ID.
