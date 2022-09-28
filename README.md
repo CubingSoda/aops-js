@@ -21,9 +21,11 @@ aops.login({ username: "x", password: "x" });
 ```
 
 <details>
+
 <summary>
 Params
 </summary>
+<br/>
 
 Required:
 
