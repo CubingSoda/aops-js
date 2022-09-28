@@ -20,12 +20,19 @@ import { AoPS } from "aops-js";
 aops.login({ username: "x", password: "x" });
 ```
 
+<details>
+<summary>
+Params
+</summary>
+
 Required:
 
 ```
 username
 password
 ```
+
+</details>
 
 ## Submit Post
 
