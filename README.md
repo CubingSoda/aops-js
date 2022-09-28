@@ -12,13 +12,10 @@ import { AoPS } from "aops-js";
 })();
 ```
 
-## Methods
-
 Make sure to wrap the code around an `async` function and prefix the methods with `await`.
-
 For each method, the required parameters are marked as `true`.
 
-### Login
+## Login
 
 ```js
 aops.login({ username: "x", password: "x" });
@@ -29,7 +26,7 @@ username: true;
 password: true;
 ```
 
-### Submit Post
+## Submit Post
 
 ```js
 aops.submitPost({ post_text: "Hello World!", topic_id: "3156623" });
