@@ -11,6 +11,16 @@ aops-js@^0.0.2:
     fs "^0.0.1-security"
     url "^0.11.0"
 
+aops-js@^0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/aops-js/-/aops-js-0.0.3.tgz#6ef406250edd3a9706624d56bc7be6212fe7e4dc"
+  integrity sha512-pMEgWRqaYetdH7BPs8h6iIEe1J6X7OvZ0fwpJ00uLKEAQc5gus1d7qKKuVp0iZLwnvix/MjBzc6FPCdH99CjAw==
+  dependencies:
+    aops-js "^0.0.2"
+    axios "^0.27.2"
+    fs "^0.0.1-security"
+    url "^0.11.0"
+
 asynckit@^0.4.0:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/asynckit/-/asynckit-0.4.0.tgz#c79ed97f7f34cb8f2ba1bc9790bcc366474b4b79"

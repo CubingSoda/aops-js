@@ -2,11 +2,11 @@ import axios from "axios";
 import Methods from "./methods.js";
 
 export default class AoPS extends Methods {
-  constructor(data = {}) {
+  constructor(data) {
     super();
 
     // verbose option
-    this.print = data.verbose ? (text) => console.log(text) : () => {};
+    this.print = data.verbose ? (text) => console.log(text) : (text) => {};
 
     // constants
     this.AJAX = "/ajax.php";
