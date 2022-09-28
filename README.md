@@ -5,11 +5,11 @@ An unofficial API for the Art of Problem Solving Website.
 ## Installation
 
 ```shell
-npm install aops-js
+$ npm install aops-js
 ```
 
 ```shell
-yarn add aops-js
+$ yarn add aops-js
 ```
 
 ## Usage
