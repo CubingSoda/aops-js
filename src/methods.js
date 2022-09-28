@@ -1,7 +1,7 @@
 import url from "url";
 
 class Methods {
-  async action(data, requirements) {
+  async checker(data, requirements) {
     const requirementsKeys = Object.keys(requirements);
     const dataKeys = Object.keys(data);
 
@@ -28,7 +28,15 @@ class Methods {
       }
     });
 
-    if (!pass) return;
+    return pass;
+  }
+  async action(data, requirements) {
+    if (!this.checker(data, requirements)) {
+      return;
+    }
+
+    const requirementsKeys = Object.keys(requirements);
+    const dataKeys = Object.keys(data);
 
     // make the string
     let string = "";
@@ -135,6 +143,21 @@ class Methods {
       is_global_announcement: false,
       announce_through: false
     });
+  }
+
+  async getUserAvatar(data) {
+    const requirements = {
+      aops_user_id: true
+    };
+
+    if (!this.checker(data, requirements)) {
+      return;
+    }
+
+    const page = `https://avatar.artofproblemsolving.com/avatar_${data.aops_user_id}.png`;
+
+    this.print(page);
+    return page;
   }
 }
 

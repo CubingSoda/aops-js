@@ -4,6 +4,8 @@ An unofficial API for the Art of Problem Solving Website.
 
 ## Usage
 
+Make sure to wrap the code around an `async` function and prefix the methods with `await`.
+
 ```js
 import { AoPS } from "aops-js";
 
@@ -12,18 +14,17 @@ import { AoPS } from "aops-js";
 })();
 ```
 
-Make sure to wrap the code around an `async` function and prefix the methods with `await`.
-For each method, the required parameters are marked as `true`.
-
 ## Login
 
 ```js
 aops.login({ username: "x", password: "x" });
 ```
 
-```js
-username: true,
-password: true
+Required:
+
+```
+username
+password
 ```
 
 ## Submit Post
@@ -32,15 +33,21 @@ password: true
 aops.submitPost({ post_text: "Hello World!", topic_id: "3156623" });
 ```
 
-```js
-post_text: true,
-topic_id: true,
+Required:
 
-notify_email: false,
-allow_latex_errors: false,
-last_post_num: false,
-disable_bbcode: false,
-is_announcement: false
+```
+post_text
+topic_id
+```
+
+Optional:
+
+```
+notify_email
+allow_latex_errors
+last_post_num
+disable_bbcode
+is_announcement
 ```
 
 ## Submit New Topic
@@ -53,29 +60,47 @@ await aops.submitNewTopic({
 });
 ```
 
-```js
-category_id: true,
-title: true,
-post_text: true,
+Required:
 
-tags: false,
-linked_tag: false,
-target_url: false,
-target_text: false,
-source: false,
-post_as_halp: false,
-pm_as_sheriff: false,
-allow_latex_errors: false,
-hidden_tags: false,
-restricted_tags: false,
-removed_autotags: false,
-notify_email: false,
-attachments: false,
-has_poll: false,
-poll_data: false,
-recipients: false,
-disable_bbcode: false,
-is_local_announcement: false,
-is_global_announcement: false,
-announce_through: false
+```
+category_id
+title
+post_text
+```
+
+Optional:
+
+```
+tags
+linked_tag
+target_url
+target_text
+source
+post_as_halp
+pm_as_sheriff
+allow_latex_errors
+hidden_tags
+restricted_tags
+removed_autotags
+notify_email
+attachments
+has_poll
+poll_data
+recipients
+disable_bbcode
+is_local_announcement
+is_global_announcement
+announce_through
+```
+
+## Get User Avatar (URL)
+
+```js
+await aops.getUserAvatar({ aops_user_id: "1" });
+```
+
+Required:
+
+```
+aops_user_id
 ```
