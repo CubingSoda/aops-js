@@ -5,12 +5,12 @@ export default class AoPS extends Methods {
   constructor(data) {
     super();
 
-    // verbose option
-    this.print = data.verbose ? (text) => console.log(text) : (text) => {};
-
     // constants
     this.AJAX = "/ajax.php";
     this.CMTY_AJAX = "/m/community/ajax.php";
+
+    // verbose option
+    this.print = data.verbose ? (text) => console.log(text) : (text) => {};
 
     // setup axios
     this.instance = axios.create({

@@ -42,3 +42,40 @@ last_post_num: false,
 disable_bbcode: false,
 is_announcement: false
 ```
+
+## Submit New Topic
+
+```js
+await aops.submitNewTopic({
+  post_text: "Hello World!",
+  title: "Hello World!",
+  category_id: "1"
+});
+```
+
+```js
+category_id: true,
+title: true,
+post_text: true,
+
+tags: false,
+linked_tag: false,
+target_url: false,
+target_text: false,
+source: false,
+post_as_halp: false,
+pm_as_sheriff: false,
+allow_latex_errors: false,
+hidden_tags: false,
+restricted_tags: false,
+removed_autotags: false,
+notify_email: false,
+attachments: false,
+has_poll: false,
+poll_data: false,
+recipients: false,
+disable_bbcode: false,
+is_local_announcement: false,
+is_global_announcement: false,
+announce_through: false
+```
