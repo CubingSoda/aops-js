@@ -2,6 +2,16 @@
 
 An unofficial API for the Art of Problem Solving Website.
 
+## Installation
+
+```shell
+npm install aops-js
+```
+
+```shell
+yarn add aops-js
+```
+
 ## Usage
 
 Make sure to wrap the code around an `async` function and prefix the methods with `await`.
