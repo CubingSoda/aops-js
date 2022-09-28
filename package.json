@@ -1,16 +1,17 @@
 {
   "name": "aops-js",
-  "version": "0.0.2",
-  "description": "An unofficial API for the Art of Problem Solving Website",
-  "main": "src/index.ts",
+  "version": "0.0.3",
+  "description": "An unofficial API for the Art of Problem Solving Website.",
+  "main": "src/index.js",
   "repository": "https://github.com/cubingsoda/aops-js",
   "author": "CubingSoda",
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "test": "node test/test.js"
+    "test": "clear && node test/test.js"
   },
   "dependencies": {
+    "aops-js": "^0.0.2",
     "axios": "^0.27.2",
     "fs": "^0.0.1-security",
     "url": "^0.11.0"

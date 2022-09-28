@@ -1,9 +1,7 @@
 import axios from "axios";
-import url from "url";
-
 import Methods from "./methods.js";
 
-export class AoPS extends Methods {
+export default class AoPS extends Methods {
   constructor(data = {}) {
     super();
 
@@ -18,31 +16,6 @@ export class AoPS extends Methods {
     this.instance = axios.create({
       baseURL: "https://artofproblemsolving.com",
     });
-  }
-
-  async login(userData = {}) {
-    this.username = userData.username || undefined;
-    this.password = userData.password || undefined;
-
-    // open /, get cookie/session id
-    const first = await this.instance.get("/");
-    this.updateCookieID(first);
-    this.updateSessionID(first);
-    this.print(`Cookie ID: ${this.cookieID}\nSession ID: ${this.sessionID}`);
-
-    // login
-    const params = new url.URLSearchParams(
-      `a=login&username=${this.username}&password=${this.password}&stay=false`
-    );
-
-    const login = await this.instance.post(this.AJAX, params.toString(), {
-      headers: {
-        "content-type": "application/x-www-form-urlencoded",
-        cookie: `aopsuid=1; aopssid=${this.cookieID}`,
-      },
-    });
-    this.updateUID(login);
-    this.print(login.data);
   }
 
   updateUID(process) {
