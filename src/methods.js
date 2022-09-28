@@ -52,8 +52,8 @@ class Methods {
       {
         headers: {
           "content-type": "application/x-www-form-urlencoded",
-          cookie: `aopsuid=${this.uid};  aopssid=${this.cookieID}`,
-        },
+          cookie: `aopsuid=${this.uid};  aopssid=${this.cookieID}`
+        }
       }
     );
 
@@ -78,8 +78,8 @@ class Methods {
     const login = await this.instance.post(this.AJAX, params.toString(), {
       headers: {
         "content-type": "application/x-www-form-urlencoded",
-        cookie: `aopsuid=1; aopssid=${this.cookieID}`,
-      },
+        cookie: `aopsuid=1; aopssid=${this.cookieID}`
+      }
     });
     this.updateUID(login);
     this.print(login.data);
@@ -99,7 +99,7 @@ class Methods {
       allow_latex_errors: false,
       last_post_num: false,
       disable_bbcode: false,
-      is_announcement: false,
+      is_announcement: false
     });
   }
 
@@ -133,7 +133,7 @@ class Methods {
       disable_bbcode: false,
       is_local_announcement: false,
       is_global_announcement: false,
-      announce_through: false,
+      announce_through: false
     });
   }
 }

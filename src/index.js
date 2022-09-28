@@ -14,7 +14,7 @@ export default class AoPS extends Methods {
 
     // setup axios
     this.instance = axios.create({
-      baseURL: "https://artofproblemsolving.com",
+      baseURL: "https://artofproblemsolving.com"
     });
   }
 

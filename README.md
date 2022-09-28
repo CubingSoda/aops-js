@@ -22,8 +22,8 @@ aops.login({ username: "x", password: "x" });
 ```
 
 ```js
-username: true;
-password: true;
+username: true,
+password: true
 ```
 
 ## Submit Post
@@ -40,5 +40,5 @@ notify_email: false,
 allow_latex_errors: false,
 last_post_num: false,
 disable_bbcode: false,
-is_announcement: false,
+is_announcement: false
 ```
