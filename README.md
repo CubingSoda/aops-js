@@ -42,6 +42,12 @@ password
 aops.submitPost({ post_text: "Hello World!", topic_id: "3156623" });
 ```
 
+<details>
+
+<summary>
+Params
+</summary>
+<br/>
 Required:
 
 ```
@@ -59,6 +65,8 @@ disable_bbcode
 is_announcement
 ```
 
+</details>
+
 ## Submit New Topic
 
 ```js
@@ -68,6 +76,13 @@ await aops.submitNewTopic({
   category_id: "1"
 });
 ```
+
+<details>
+
+<summary>
+Params
+</summary>
+<br/>
 
 Required:
 
@@ -102,14 +117,24 @@ is_global_announcement
 announce_through
 ```
 
+</details>
+
 ## Get User Avatar (URL)
 
 ```js
 await aops.getUserAvatar({ aops_user_id: "1" });
 ```
 
+<details>
+
+<summary>
+Params
+</summary>
+<br/>
 Required:
 
 ```
 aops_user_id
 ```
+
+<details>
