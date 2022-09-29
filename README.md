@@ -147,4 +147,4 @@ Required:
 aops_user_id
 ```
 
-<details>
+</details>
