@@ -8,32 +8,35 @@ class Methods {
     // check for invalid parameters
     dataKeys.forEach((key) => {
       if (!requirementsKeys.includes(key)) {
-        console.log(
-          "❌ AoPS-JS: Invalid parameter(s). See README.md for more info."
-        );
+        this.print("Invalid parameter(s). See README.md for more info.", {
+          type: "error",
+          func: "method data checker"
+        });
         return;
       }
     });
 
     // make sure required values exist
-    let pass;
+    let passes = [];
     requirementsKeys.forEach((key) => {
       if (requirements[key] === true && !dataKeys.includes(key)) {
-        console.log(
-          `❌ AoPS-JS: Missing Parameter: "${key}". See README.md for more info.`
+        this.print(
+          `Missing Parameter: "${key}". See README.md for more info.`,
+          {
+            type: "error",
+            func: "method data checker"
+          }
         );
-        pass = false;
+        passes.push(false);
       } else {
-        pass = true;
+        passes.push(true);
       }
     });
 
-    return pass;
+    return !passes.includes(false);
   }
   async action(data, requirements) {
-    if (!this.checker(data, requirements)) {
-      return;
-    }
+    if ((await this.checker(data, requirements)) === false) return;
 
     const requirementsKeys = Object.keys(requirements);
     const dataKeys = Object.keys(data);
@@ -65,32 +68,7 @@ class Methods {
       }
     );
 
-    this.print(action.data);
-  }
-
-  async login(userData = {}) {
-    this.username = userData.username || undefined;
-    this.password = userData.password || undefined;
-
-    // open /, get cookie/session id
-    const first = await this.instance.get("/");
-    this.updateCookieID(first);
-    this.updateSessionID(first);
-    this.print(`Cookie ID: ${this.cookieID}\nSession ID: ${this.sessionID}`);
-
-    // login
-    const params = new url.URLSearchParams(
-      `a=login&username=${this.username}&password=${this.password}&stay=false`
-    );
-
-    const login = await this.instance.post(this.AJAX, params.toString(), {
-      headers: {
-        "content-type": "application/x-www-form-urlencoded",
-        cookie: `aopsuid=1; aopssid=${this.cookieID}`
-      }
-    });
-    this.updateUID(login);
-    this.print(login.data);
+    return action.data;
   }
 
   async submitPost(data) {
@@ -145,6 +123,25 @@ class Methods {
     });
   }
 
+  async fetchTopics(data) {
+    return await this.action(data, {
+      a: "fetch_topics",
+      aops_logged_in: "true",
+      aops_user_id: this.uid,
+      aops_session_id: this.sessionID,
+
+      category_id: true,
+      category_type: true,
+
+      log_visit: false,
+      required_tag: false,
+      fetch_before: false,
+      user_id: false,
+      fetch_archived: false,
+      fetch_announcements: false
+    });
+  }
+
   async getUserAvatar(data) {
     const requirements = {
       aops_user_id: true
@@ -155,7 +152,6 @@ class Methods {
     }
 
     const page = `https://avatar.artofproblemsolving.com/avatar_${data.aops_user_id}.png`;
-
     this.print(page);
     return page;
   }

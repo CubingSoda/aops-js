@@ -14,10 +14,10 @@ $ yarn add aops-js
 
 ## Usage
 
-Make sure to wrap the code around an `async` function and prefix the methods with `await`.
+Top level await is supported in Node version 13.3 or higher. If not, you must wrap it around an `async` function.
 
 ```js
-import { AoPS } from "aops-js";
+import AoPS from "aops-js";
 
 (async () => {
   const aops = await new AoPS({ verbose: true });
@@ -125,6 +125,42 @@ disable_bbcode
 is_local_announcement
 is_global_announcement
 announce_through
+```
+
+</details>
+
+## Fetch Topics
+
+```js
+await aops.fetchTopics({
+  category_id: "1946392",
+  category_type: "blog"
+});
+```
+
+<details>
+
+<summary>
+Params
+</summary>
+<br/>
+
+Required:
+
+```
+category_id
+category_type
+```
+
+Optional:
+
+```
+log_visit
+required_tag
+fetch_before
+user_id
+fetch_archived
+fetch_announcements
 ```
 
 </details>
